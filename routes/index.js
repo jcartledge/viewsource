@@ -3,7 +3,10 @@ var request = require('request')
 ;
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' })
+  res.render('index', {
+    title: 'View source',
+    bookmarklet: 'javascript:window.location=\'http://' + req.headers.host + '/url/\'+window.location;'
+  });
 };
 
 exports.main = function(req, res) {
