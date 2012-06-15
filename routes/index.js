@@ -1,4 +1,4 @@
-var get_url = require('request')
+var request = require('request')
   , hljs = require('hljs')
 ;
 
@@ -9,7 +9,7 @@ exports.index = function(req, res){
 exports.main = function(req, res) {
 
   var url = req.params[0];
-  get_url(url, function(error, response, body) {
+  request(url, function(error, response, body) {
     if(!error && response.statusCode == 200) {
       res.render('main', {
         title: 'View source:' + url
